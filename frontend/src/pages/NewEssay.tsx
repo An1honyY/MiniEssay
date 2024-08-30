@@ -27,14 +27,22 @@ async function loadFromStorage() {
 function NewEssay() {
     // For more on using BlockNote, see https://www.blocknotejs.org/docs/editor-basics/setup
     const [initialContent, setInitialContent] = useState<
-        PartialBlock[] | undefined | "loading"
+    PartialBlock[] | undefined | "loading"
     >("loading");
 
+    const [theme, setTheme] = useState(localStorage.theme ? localStorage.theme : 'light');
+        
     // Loads the previously stored editor contents.
     useEffect(() => {
         loadFromStorage().then((content) => {
             setInitialContent(content);
         });
+
+        // Retrieve the theme from localStorage
+        const storedTheme = localStorage.theme;
+        if (storedTheme) {
+            setTheme(storedTheme);
+        }
     }, []);
 
     // Creates a new editor instance.
@@ -60,6 +68,7 @@ function NewEssay() {
                     onChange={() => {
                         saveToStorage(editor.document);
                     }}
+                    theme={theme}
                 />
             </div>
         </>
