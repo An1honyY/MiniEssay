@@ -10,13 +10,14 @@ function Home() {
             <div>
               <h1 className="text-5xl font-bold mt-5">Mini Essays</h1>
               <p className="py-6">
-                A simple writing tool that helps you focus your thoughts.
+                A mini <i>...hehe</i> writing tool for focusing your thoughts.
                 <br></br>
-                Break down concepts in your own words.
+                To get a better understanding of a concept,
                 <br></br>
-                Find gaps in your understanding and fill them in.
+                Break it down as if you were explaining it to someone else.
+                <br></br>
               </p>
-              <Link to ="./NewEssay" className="btn btn-primary">It's Go Time!</Link>
+              <Link to ="./New" className="btn btn-primary">It's Go Time!</Link>
             </div>
             <div className="p-6">
               <div className="mockup-code relative">
