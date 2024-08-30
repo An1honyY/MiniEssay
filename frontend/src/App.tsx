@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import NewEssay from './pages/NewEssay'
+import New from './pages/New'
 import Navbar from './pages/components/Navbar'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/NewEssay" element={<NewEssay />} />
+        <Route path="/New" element={<New />} />
       </Routes>
     </Router>
       

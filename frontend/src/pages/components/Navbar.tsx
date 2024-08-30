@@ -11,7 +11,7 @@ function Navbar() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
                                 fill="none"
-                                viewBox="0 0 24 24"
+                                viewBox="0 0 20 20"
                                 stroke="currentColor">
                                 <path
                                     strokeLinecap="round"
@@ -22,20 +22,20 @@ function Navbar() {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-40 p-2 shadow">
                             <li> <Link to="/">Home</Link></li>
-                            <li> <Link to="/NewEssay">New</Link></li>
+                            <li> <Link to="/New">New</Link></li>
                             <li> <Link to="/library">Library</Link></li>
                             <li> <Link to="/about">Account</Link></li>
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <a className="btn btn-ghost text-xl">Mini Essay</a>
+                    <a className="btn btn-ghost text-xl">Mini Essays</a>
                 </div>
                 <div className="navbar-end">
                     <button className="btn btn-ghost btn-circle">
-                    <ThemeSelector />
+                        <ThemeSelector />
                     </button>
                 </div>
             </div>

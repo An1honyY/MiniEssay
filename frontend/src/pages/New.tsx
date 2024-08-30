@@ -24,7 +24,7 @@ async function loadFromStorage() {
 }
 
 
-function NewEssay() {
+function New() {
     // For more on using BlockNote, see https://www.blocknotejs.org/docs/editor-basics/setup
     const [initialContent, setInitialContent] = useState<
     PartialBlock[] | undefined | "loading"
@@ -62,7 +62,6 @@ function NewEssay() {
 
         <>
             <div className='container mx-auto pt-6'>
-            <h1>New Essay</h1>
                 <BlockNoteView
                     editor={editor}
                     onChange={() => {
@@ -75,4 +74,4 @@ function NewEssay() {
 
     )
 }
-export default NewEssay
+export default New
