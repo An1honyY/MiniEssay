@@ -1,18 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Moon from "../../assets/moon-svgrepo-com.svg";
 import Sun from "../../assets/sun-2-svgrepo-com.svg";
+import { ThemeContext } from "../../context/ThemeContext";
 
 
 function ThemeSelector() {
+    
+    const {theme, toggleTheme} = useContext(ThemeContext);
+    const icon = theme === 'dark' ? Sun : Moon;
 
-
-    //Other theme logic
-    const [theme, setTheme] = useState(localStorage.theme ? localStorage.theme : 'light');
-    console.log('theme on restart is', theme);
-    const toggleTheme = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-    };
-    // initially set the theme and "listen" for changes to apply them to the HTML tag
+    // initially save theme var to storage and "listen" for changes to apply them to the HTML tag
     useEffect(() => {
         const htmlElement = document.querySelector('html');
         if (htmlElement) {
@@ -20,9 +17,6 @@ function ThemeSelector() {
             localStorage.theme = theme;
         }
     }, [theme]);
-
-    const icon = theme === 'dark' ? Sun : Moon;
-
 
     return (
         <label className="swap font-semibold">

@@ -2,8 +2,8 @@ import { Block, BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import { BlockNoteView } from '@blocknote/mantine';
 import "@blocknote/mantine/style.css";
-
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 let debounceTimer: number;
 
@@ -27,22 +27,18 @@ async function loadFromStorage() {
 function New() {
     // For more on using BlockNote, see https://www.blocknotejs.org/docs/editor-basics/setup
     const [initialContent, setInitialContent] = useState<
-    PartialBlock[] | undefined | "loading"
+        PartialBlock[] | undefined | "loading"
     >("loading");
 
-    const [theme, setTheme] = useState(localStorage.theme ? localStorage.theme : 'light');
-        
-    // Loads the previously stored editor contents.
+    const { theme } = useContext(ThemeContext);
+    // Required because BlockNote theme won't accept theme. Only localStorage.theme (shrug)
+    localStorage.theme = theme; 
+
     useEffect(() => {
+        // Loads the previously stored editor contents.
         loadFromStorage().then((content) => {
             setInitialContent(content);
         });
-
-        // Retrieve the theme from localStorage
-        const storedTheme = localStorage.theme;
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
     }, []);
 
     // Creates a new editor instance.
@@ -67,7 +63,7 @@ function New() {
                     onChange={() => {
                         saveToStorage(editor.document);
                     }}
-                    theme={theme}
+                    theme={localStorage.theme}
                 />
             </div>
         </>
