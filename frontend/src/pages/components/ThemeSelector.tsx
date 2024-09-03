@@ -5,17 +5,15 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 
 function ThemeSelector() {
-    
-    const {theme, toggleTheme} = useContext(ThemeContext);
+
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const icon = theme === 'dark' ? Sun : Moon;
 
-    // initially save theme var to storage and "listen" for changes to apply them to the HTML tag
     useEffect(() => {
-        const htmlElement = document.querySelector('html');
-        if (htmlElement) {
-            htmlElement.setAttribute('data-theme', theme);
-            localStorage.theme = theme;
-        }
+        // saves the theme to html data-theme attribute so DaisyUI can use it
+        document.querySelector('html')!.setAttribute('data-theme', theme);
+        // saves the theme to localStorage so we can remember it when refreshing the page
+        localStorage.theme = theme;
     }, [theme]);
 
     return (
