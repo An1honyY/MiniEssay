@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
-import Moon from "../../assets/moon-svgrepo-com.svg";
-import Sun from "../../assets/sun-2-svgrepo-com.svg";
-import { ThemeContext } from "../../context/ThemeContext";
+import Moon from "../assets/moon-svgrepo-com.svg";
+import Sun from "../assets/sun-2-svgrepo-com.svg";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 function ThemeSelector() {

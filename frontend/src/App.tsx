@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import New from './pages/New'
-import Navbar from './pages/components/Navbar'
+import Navbar from './components/Navbar'
 import ThemeContextProvider from './context/ThemeContext'
 
 function App() {
