@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Library() {
 
     function previewNote(): String {
@@ -14,7 +16,9 @@ function Library() {
             <h1>Library</h1>
             <div className="flex justify-between items-center">
                 <div className="flex items-center rounded-box border max-w-md p-4">
-                    {previewNote()}
+
+                    <Link to="./read">{previewNote()}</Link>
+
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import New from './pages/New'
 import Library from './pages/Library'
 import Navbar from './components/Navbar'
 import ThemeContextProvider from './context/ThemeContext'
+import Read from './pages/Read'
 
 function App() {
   
@@ -14,8 +15,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/New" element={<New />} />
-          <Route path="/Library" element={<Library />} />
+          <Route path="/new" element={<New />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/library/read" element={<Read />} />
         </Routes>
       </Router>
       </ThemeContextProvider>

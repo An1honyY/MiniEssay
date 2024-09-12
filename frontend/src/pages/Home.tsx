@@ -17,7 +17,7 @@ function Home() {
                 Break it down as if you were explaining it to someone else.
                 <br></br>
               </p>
-              <Link to ="./New" className="btn btn-primary">It's Go Time!</Link>
+              <Link to ="./new" className="btn btn-primary">It's Go Time!</Link>
             </div>
             <div className="p-6">
               <div className="mockup-code relative">
