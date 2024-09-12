@@ -1,23 +1,22 @@
 function Library() {
 
-    function previewNote() {
+    function previewNote(): String {
         const note = localStorage.getItem('editorContent');
-        let noteJson: string = '';
+        const noteJson = JSON.parse(note ?? '');
 
-        if (note) {
-            noteJson = JSON.stringify(note, null, 2);
-        }
-        return noteJson;
+        const headingObject = noteJson.find((item: { type: string; }) => item.type === 'heading');
+        const noteHeading = headingObject ? headingObject.content[0].text : 'Heading not found';
+
+        return noteHeading;
     }
     return (
         <div className='container mx-auto pt-6'>
             <h1>Library</h1>
-            <pre>
-
-                <code>
+            <div className="flex justify-between items-center">
+                <div className="flex items-center rounded-box border max-w-md p-4">
                     {previewNote()}
-                </code>
-            </pre>
+                </div>
+            </div>
         </div>
     );
 }
